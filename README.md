@@ -1,35 +1,55 @@
-Finalizei o curso de criação de API com o NestJS usando typescript, pela instituição Alura. Com isso, criei minha própria API, a fim de fixar o conteúdo.
+# Gerenciador de Usuários e Produtos - API NestJS
 
+Esta é uma API RESTful desenvolvida com o framework [NestJS](https://nestjs.com/) e escrita em TypeScript. O objetivo deste projeto é aplicar os conhecimentos adquiridos no curso de criação de APIs da [Alura](https://www.alura.com.br/).
 
-Introduzindo, criei uma **API com os métodos CRUD** para criação de usuarios e produtos. 
-Há 2 rotas fixas; **'/usuarios'** e **'/produtos'**
-Ao criar um usuário ou produto, automatizei para que seja atruibuído um id gerado automaticamente. Também criei arquivos .dto para asegurar que o produto ou usuário esteja de acordo com o a formatação padrão da aplicação. Adicionei também a funcionalidade de verificar se um produto ou usuário existe pelo id informado na requisição.
-Além disso, usando a biblioteca class-validator e o class-transform, **criei** um validator e garanti que não seja possível criar um usuário com um email existente no banco (neste caso, um arquivo repository que fica salvo na memória enquanto a aplicação está sendo executada). <br>
+## 🗂️ Índice
+- [Funcionalidades](#funcionalidades)
+- [Rotas da API](#rotas-da-api)
+- [Como Usar](#como-usar)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Melhorias Planejadas](#melhorias-planejadas)
 
+## ✨ Funcionalidades
+- CRUD de usuários e produtos.
+- Validação de dados utilizando a biblioteca `class-validator`.
+- Controle de unicidade para emails no cadastro de usuários.
+- IDs gerados automaticamente para usuários e produtos.
+- Verificação da existência de recursos pelo ID informado.
 
-Para criar um usuário ou produto, é necessário a requisição **Post** e no corpo usar o JSON <br>
-{<br>
-"nome": **string**,<br>
-"email": **email**,<br>
-"senha": **string**<br>
-}<br>
-para usuarios
-<br>
-<br>
-{ <br>
-"nome": **string**, <br>
-"categora": **string**, <br>
-"quantidade": **number**, <br>
-"preco": **number**<br>
-}<br>
-para produtos
-<br><br>
-Para atualizar o usuario ou produto, é necessário fazer a requisição **Put** na rota desejada, com o id.
-<br> Exemplo: localhost:3000/usuarios/:id 
-<br><br>
-Para deletar o usuario ou produto, é necessário fazer a requisição **Delete** na rota desejada também com o id.
-<br> Exemplo: localhost:3000/produtos/:id 
-<br><br>
-Criar esta API me fez entender alguns conceitos de **MVC**, como o **app.module**, e os **controllers** de cada entidade. Compreendi sobre como o arquivo repository (ou service) obtem os **métodos responsáveis por criar, ler, atualizar ou deletar**.
+## 📚 Rotas da API
+### Usuários
+- **POST /usuarios**: Cria um novo usuário.
+  - Exemplo de corpo da requisição:
+    ```json
+    {
+      "nome": "João Silva",
+      "email": "joao.silva@email.com",
+      "senha": "123456"
+    }
+    ```
+- **GET /usuarios/:id**: Obtém os detalhes de um usuário.
+- **PUT /usuarios/:id**: Atualiza as informações de um usuário existente.
+- **DELETE /usuarios/:id**: Remove um usuário pelo ID.
 
-Esta é a minha primeira API, como pode ver, é bem simples. Tenho noção que posso não estar seguindo todos os padrões esperado, mas bem como disse, esse é apenas o começo estou satisfeito por ser minha primeira API. Posteriormente, penso em evolui-la com um banco de dados, criptografia na senha e consumi-la.
+### Produtos
+- **POST /produtos**: Cria um novo produto.
+  - Exemplo de corpo da requisição:
+    ```json
+    {
+      "nome": "Cadeira Gamer",
+      "categoria": "Móveis",
+      "quantidade": 10,
+      "preco": 1500
+    }
+    ```
+- **GET /produtos/:id**: Obtém os detalhes de um produto.
+- **PUT /produtos/:id**: Atualiza as informações de um produto existente.
+- **DELETE /produtos/:id**: Remove um produto pelo ID.
+
+## 😊 Considerações Finais
+Este é meu primeiro projeto de API, criado com o objetivo de consolidar os conhecimentos adquiridos. Apesar de simples, é um ponto de partida para projetos mais avançados no futuro. Posteriormente, pretendo adicionar um banco de dados e criptografia de senha.
+
+## 🚀 Como Usar
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/users-and-products-manager.git
